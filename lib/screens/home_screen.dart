@@ -332,8 +332,8 @@ class _HomeScreenState extends State<HomeScreen>
       borderRadius: BorderRadius.circular(30),
       gradient: LinearGradient(
         colors: [
-          AppTheme.primaryGradient.colors.first.withOpacity(0.4),
-          AppTheme.primaryGradient.colors.last.withOpacity(0.3),
+          AppTheme.primaryGradient.colors.first.withValues(alpha: 0.4),
+          AppTheme.primaryGradient.colors.last.withValues(alpha: 0.3),
         ],
       ),
       onTap: () {
@@ -348,7 +348,7 @@ class _HomeScreenState extends State<HomeScreen>
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withValues(alpha: 0.2),
               shape: BoxShape.circle,
             ),
             child: const Icon(Icons.auto_awesome, size: 20),

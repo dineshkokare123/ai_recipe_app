@@ -505,8 +505,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            AppTheme.secondaryGradient.colors.first.withOpacity(0.4),
-            AppTheme.secondaryGradient.colors.last.withOpacity(0.3),
+            AppTheme.secondaryGradient.colors.first.withValues(alpha: 0.4),
+            AppTheme.secondaryGradient.colors.last.withValues(alpha: 0.3),
           ],
         ),
         onTap: () {
@@ -523,7 +523,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
+                color: Colors.white.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.play_arrow, size: 20),

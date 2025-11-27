@@ -38,9 +38,8 @@ class GeminiService {
 
       if (response.text != null) {
         final recipe = _parseRecipeFromResponse(response.text!);
-        // Add a sample video URL for demonstration
-        recipe.videoUrl =
-            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4';
+        // Add a sample video URL for demonstration (YouTube)
+        recipe.videoUrl = 'https://www.youtube.com/watch?v=sv3TXMSv6Lw';
         return recipe;
       }
     } catch (e) {
@@ -97,7 +96,7 @@ Return an array of $count recipes in valid JSON format.
         return _parseMultipleRecipes(response.text!);
       }
     } catch (e) {
-     debugPrint('Error generating multiple recipes: $e');
+      debugPrint('Error generating multiple recipes: $e');
       rethrow;
     }
     return [];
@@ -228,10 +227,11 @@ Make it detailed, practical, and delicious!
       }
 
       final Map<String, dynamic> json = jsonDecode(jsonStr);
+      final title = json['title'] as String;
 
       return Recipe(
         id: const Uuid().v4(),
-        title: json['title'] as String,
+        title: title,
         description: json['description'] as String,
         ingredients: List<String>.from(json['ingredients'] as List),
         instructions: List<String>.from(json['instructions'] as List),
@@ -244,6 +244,7 @@ Make it detailed, practical, and delicious!
         calories: json['calories'] as int?,
         createdAt: DateTime.now(),
         isAIGenerated: true,
+        imageUrl: _generateImageUrl(title),
       );
     } catch (e) {
       debugPrint('Error parsing recipe: $e');
@@ -264,9 +265,10 @@ Make it detailed, practical, and delicious!
       final List<dynamic> jsonList = jsonDecode(jsonStr);
 
       return jsonList.map((json) {
+        final title = json['title'] as String;
         return Recipe(
           id: const Uuid().v4(),
-          title: json['title'] as String,
+          title: title,
           description: json['description'] as String,
           ingredients: List<String>.from(json['ingredients'] as List),
           instructions: List<String>.from(json['instructions'] as List),
@@ -279,11 +281,19 @@ Make it detailed, practical, and delicious!
           calories: json['calories'] as int?,
           createdAt: DateTime.now(),
           isAIGenerated: true,
+          imageUrl: _generateImageUrl(title),
         );
       }).toList();
     } catch (e) {
       debugPrint('Error parsing multiple recipes: $e');
       return [];
     }
+  }
+
+  String _generateImageUrl(String title) {
+    final encodedTitle = Uri.encodeComponent(title);
+    // Using Pollinations.ai for AI image generation
+    // Adding 'food photography' and 'delicious' to improve quality
+    return 'https://image.pollinations.ai/prompt/$encodedTitle%20delicious%20food%20photography%204k';
   }
 }

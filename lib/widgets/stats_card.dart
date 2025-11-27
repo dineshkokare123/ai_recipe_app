@@ -25,8 +25,8 @@ class StatsCard extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          gradient.colors.first.withOpacity(0.3),
-          gradient.colors.last.withOpacity(0.1),
+          gradient.colors.first.withValues(alpha: 0.3),
+          gradient.colors.last.withValues(alpha: 0.1),
         ],
       ),
       blur: 20,

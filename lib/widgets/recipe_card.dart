@@ -29,7 +29,7 @@ class RecipeCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(child:_buildHeader(context),),
+                    Flexible(child: _buildHeader(context)),
                     const Spacer(),
                     _buildFooter(context),
                   ],
@@ -50,11 +50,11 @@ class RecipeCard extends StatelessWidget {
           child: recipe.imageUrl != null
               ? CachedNetworkImage(
                   imageUrl: recipe.imageUrl!,
-                  height: 55,
+                  height: 140,
                   width: double.infinity,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => Container(
-                    height: 55,
+                    height: 140,
                     color: AppTheme.surfaceColor,
                     child: const Center(
                       child: CircularProgressIndicator(
@@ -103,7 +103,7 @@ class RecipeCard extends StatelessWidget {
 
   Widget _buildPlaceholder() {
     return Container(
-      height: 55,
+      height: 140,
       decoration: BoxDecoration(gradient: AppTheme.cardGradient),
       child: const Center(
         child: Icon(

@@ -38,7 +38,9 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
         style: const TextStyle(color: AppTheme.textPrimary),
         decoration: InputDecoration(
           hintText: 'Search recipes, ingredients...',
-          hintStyle: TextStyle(color: AppTheme.textTertiary.withOpacity(0.7)),
+          hintStyle: TextStyle(
+            color: AppTheme.textTertiary.withValues(alpha: 0.7),
+          ),
           prefixIcon: const Icon(Icons.search, color: AppTheme.primaryColor),
           suffixIcon: _controller.text.isNotEmpty
               ? IconButton(

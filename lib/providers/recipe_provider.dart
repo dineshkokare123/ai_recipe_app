@@ -143,6 +143,9 @@ class RecipeProvider extends ChangeNotifier {
         calories: 285,
         createdAt: DateTime.now(),
         isAIGenerated: false,
+        imageUrl:
+            'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        videoUrl: 'https://www.youtube.com/watch?v=sv3TXMSv6Lw',
       ),
     ];
   }
