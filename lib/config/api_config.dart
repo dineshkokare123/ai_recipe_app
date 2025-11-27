@@ -10,7 +10,7 @@ class ApiConfig {
   // Get your key from: https://makersuite.google.com/app/apikey
   static const String geminiApiKey = String.fromEnvironment(
     'GEMINI_API_KEY',
-    defaultValue: 'AIzaSyABbDG8WNdZj-MjyrBO7JEHKBENTiZeErk',
+    defaultValue: 'YOUR_GEMINI_API_KEY',
   );
 
   // Check if API key is configured

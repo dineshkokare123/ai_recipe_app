@@ -5,6 +5,7 @@ import 'package:share_plus/share_plus.dart';
 import '../models/recipe_model.dart';
 import '../providers/recipe_provider.dart';
 import '../theme/app_theme.dart';
+import 'cooking_mode_screen.dart';
 
 class RecipeDetailScreen extends StatefulWidget {
   final Recipe recipe;
@@ -491,7 +492,13 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
               ),
               child: ElevatedButton.icon(
                 onPressed: () {
-                  // Start cooking mode
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          CookingModeScreen(recipe: widget.recipe),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
