@@ -221,4 +221,3 @@ For support, email [dineshkokare5@gmail.com] or open an issue in the repository.
 ---
 
 Made with ❤️ using Flutter and Gemini AI
-# ai_recipe_app
