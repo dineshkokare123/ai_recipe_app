@@ -83,7 +83,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    AppTheme.backgroundColor.withOpacity(0.7),
+                    AppTheme.backgroundColor.withAlpha(179),
                     AppTheme.backgroundColor,
                   ],
                 ),
@@ -96,7 +96,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
         icon: Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppTheme.surfaceColor.withOpacity(0.9),
+            color: AppTheme.surfaceColor.withAlpha(230),
             shape: BoxShape.circle,
           ),
           child: const Icon(Icons.arrow_back),
@@ -112,7 +112,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
               icon: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: AppTheme.surfaceColor.withOpacity(0.9),
+                  color: AppTheme.surfaceColor.withAlpha(230),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -132,7 +132,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
           icon: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: AppTheme.surfaceColor.withOpacity(0.9),
+              color: AppTheme.surfaceColor.withAlpha(230),
               shape: BoxShape.circle,
             ),
             child: const Icon(Icons.share),

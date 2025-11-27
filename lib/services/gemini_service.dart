@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import '../models/recipe_model.dart';
 import 'package:uuid/uuid.dart';
@@ -43,7 +44,7 @@ class GeminiService {
         return recipe;
       }
     } catch (e) {
-      print('Error generating recipe: $e');
+      debugPrint('Error generating recipe: $e');
       rethrow;
     }
     return null;
@@ -96,7 +97,7 @@ Return an array of $count recipes in valid JSON format.
         return _parseMultipleRecipes(response.text!);
       }
     } catch (e) {
-      print('Error generating multiple recipes: $e');
+     debugPrint('Error generating multiple recipes: $e');
       rethrow;
     }
     return [];
@@ -123,7 +124,7 @@ Keep it concise and exciting!
 
       return response.text ?? 'No variation generated';
     } catch (e) {
-      print('Error generating variation: $e');
+      debugPrint('Error generating variation: $e');
       return 'Error generating variation';
     }
   }
@@ -146,7 +147,7 @@ Focus on:
 
       return response.text ?? 'No tips generated';
     } catch (e) {
-      print('Error generating tips: $e');
+      debugPrint('Error generating tips: $e');
       return 'Error generating tips';
     }
   }
@@ -171,7 +172,7 @@ Be practical and consider availability and dietary needs.
             .toList();
       }
     } catch (e) {
-      print('Error suggesting substitutions: $e');
+      debugPrint('Error suggesting substitutions: $e');
     }
     return [];
   }
@@ -245,8 +246,8 @@ Make it detailed, practical, and delicious!
         isAIGenerated: true,
       );
     } catch (e) {
-      print('Error parsing recipe: $e');
-      print('Response: $response');
+      debugPrint('Error parsing recipe: $e');
+      debugPrint('Response: $response');
       rethrow;
     }
   }
@@ -281,7 +282,7 @@ Make it detailed, practical, and delicious!
         );
       }).toList();
     } catch (e) {
-      print('Error parsing multiple recipes: $e');
+      debugPrint('Error parsing multiple recipes: $e');
       return [];
     }
   }
