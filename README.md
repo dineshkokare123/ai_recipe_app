@@ -200,6 +200,10 @@ flutter build ios --release
 - [ ] AR cooking instructions
 - [ ] Multi-language support
 
+## App Screenshots:
+[app screen.webm](https://github.com/user-attachments/assets/2e662632-ad16-4322-ad08-7cfd4b785f42)
+
+
 ## Contributing 🤝
 
 Contributions are welcome! Please feel free to submit a Pull Request.
