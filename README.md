@@ -197,7 +197,9 @@ flutter build ios --release
 - [ ] Multi-language support
 
 ## App Screenshots:
-[app screen.webm](https://github.com/user-attachments/assets/2e662632-ad16-4322-ad08-7cfd4b785f42)
+
+[Uploading ai_recipe_app.webm…]()
+
 
 
 ## Contributing 🤝
