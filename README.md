@@ -199,7 +199,7 @@ flutter build ios --release
 ## App Screenshots:
 
 
-[ai_recipe_app.webm](https://github.com/user-attachments/assets/bae3ea72-7b24-4feb-8159-6978bccf0dc5)
+[recipe_ai_app.webm](https://github.com/user-attachments/assets/e4e16317-516a-425c-a577-da7fc8913514)
 
 
 
