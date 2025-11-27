@@ -15,10 +15,6 @@ A beautiful Flutter application that generates recipes using Google's Gemini AI 
 - **🎨 Staggered Animations**: Smooth, eye-catching animations
 - **🍽️ Cooking Tips**: AI-generated cooking tips for each recipe
 
-## Screenshots
-
-[Screenshots will be added here]
-
 ## Getting Started 🚀
 
 ### Prerequisites
