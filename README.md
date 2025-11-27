@@ -31,7 +31,7 @@ A beautiful Flutter application that generates recipes using Google's Gemini AI 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/dineshkokare123/ai_recipe_app
    cd ai_recipe_app
    ```
 
