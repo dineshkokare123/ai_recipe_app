@@ -6,6 +6,8 @@ import '../models/recipe_model.dart';
 import '../providers/recipe_provider.dart';
 import '../theme/app_theme.dart';
 import 'cooking_mode_screen.dart';
+import '../widgets/video_player_widget.dart';
+import '../widgets/glass_widgets.dart';
 
 class RecipeDetailScreen extends StatefulWidget {
   final Recipe recipe;
@@ -45,6 +47,23 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _buildHeader(),
+                if (widget.recipe.videoUrl != null) ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Recipe Video',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const SizedBox(height: 12),
+                        VideoPlayerWidget(videoUrl: widget.recipe.videoUrl!),
+                        const SizedBox(height: 24),
+                      ],
+                    ),
+                  ),
+                ],
                 _buildQuickInfo(),
                 _buildTabBar(),
                 _buildTabContent(),
@@ -481,36 +500,45 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen>
   Widget _buildActionButtons(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
+      child: GlassButton(
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 32),
+        borderRadius: BorderRadius.circular(16),
+        gradient: LinearGradient(
+          colors: [
+            AppTheme.secondaryGradient.colors.first.withOpacity(0.4),
+            AppTheme.secondaryGradient.colors.last.withOpacity(0.3),
+          ],
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CookingModeScreen(recipe: widget.recipe),
+            ),
+          );
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                gradient: AppTheme.secondaryGradient,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: AppTheme.softShadow,
+                color: Colors.white.withOpacity(0.2),
+                shape: BoxShape.circle,
               ),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          CookingModeScreen(recipe: widget.recipe),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
-                  minimumSize: const Size(0, 56),
-                ),
-                icon: const Icon(Icons.play_arrow),
-                label: const Text('Start Cooking'),
+              child: const Icon(Icons.play_arrow, size: 20),
+            ),
+            const SizedBox(width: 12),
+            const Text(
+              'Start Cooking',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.textPrimary,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

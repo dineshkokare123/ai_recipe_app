@@ -7,6 +7,7 @@ import '../widgets/recipe_card.dart';
 import '../widgets/category_chip.dart';
 import '../widgets/search_bar_widget.dart';
 import '../widgets/stats_card.dart';
+import '../widgets/glass_widgets.dart';
 import 'recipe_detail_screen.dart';
 import 'ai_generate_screen.dart';
 
@@ -92,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen>
                   child: const Icon(
                     Icons.restaurant_menu,
                     color: AppTheme.primaryColor,
+                    size: 28,
                   ),
                 ),
               ],
@@ -325,23 +327,42 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildFAB(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: AppTheme.primaryGradient,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: AppTheme.glowShadow,
+    return GlassButton(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      borderRadius: BorderRadius.circular(30),
+      gradient: LinearGradient(
+        colors: [
+          AppTheme.primaryGradient.colors.first.withOpacity(0.4),
+          AppTheme.primaryGradient.colors.last.withOpacity(0.3),
+        ],
       ),
-      child: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AIGenerateScreen()),
-          );
-        },
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        icon: const Icon(Icons.auto_awesome),
-        label: const Text('Generate with AI'),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AIGenerateScreen()),
+        );
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.2),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(Icons.auto_awesome, size: 20),
+          ),
+          const SizedBox(width: 12),
+          const Text(
+            'Generate with AI',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: AppTheme.textPrimary,
+            ),
+          ),
+        ],
       ),
     );
   }

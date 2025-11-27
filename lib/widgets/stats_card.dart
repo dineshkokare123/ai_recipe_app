@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import 'glass_widgets.dart';
 
 class StatsCard extends StatelessWidget {
   final String title;
@@ -17,13 +18,18 @@ class StatsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GlassCard(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: gradient,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: AppTheme.softShadow,
+      borderRadius: BorderRadius.circular(16),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          gradient.colors.first.withOpacity(0.3),
+          gradient.colors.last.withOpacity(0.1),
+        ],
       ),
+      blur: 20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

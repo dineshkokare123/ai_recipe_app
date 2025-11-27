@@ -35,8 +35,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
       child: TextField(
         controller: _controller,
         onChanged: widget.onSearch,
+        style: const TextStyle(color: AppTheme.textPrimary),
         decoration: InputDecoration(
           hintText: 'Search recipes, ingredients...',
+          hintStyle: TextStyle(color: AppTheme.textTertiary.withOpacity(0.7)),
           prefixIcon: const Icon(Icons.search, color: AppTheme.primaryColor),
           suffixIcon: _controller.text.isNotEmpty
               ? IconButton(
@@ -54,6 +56,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
           ),
           filled: true,
           fillColor: Colors.transparent,
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
+          ),
         ),
       ),
     );
